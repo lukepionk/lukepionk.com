@@ -1,0 +1,14 @@
+{
+  "name": "lukepionk-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A small, static personal website for Luke Pionk.",
+  "scripts": {
+    "dev": "python3 -m http.server 4173 --bind 127.0.0.1 --directory site",
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0"
+  }
+}
