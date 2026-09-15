@@ -14,15 +14,20 @@ test('five sections are readable, accessible, and usable without JavaScript', as
   });
   await page.goto('/');
 
-  await expect(page).toHaveTitle('Luke Pionk — Practical AI & software');
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Luke Pionk.');
+  await expect(page).toHaveTitle('Luke Pionk — Making complicated work better');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I make complicated work clearer, more useful, and easier to trust.');
   await expect(page.locator('main > section')).toHaveCount(5);
-  await expect(page.getByRole('heading', { level: 2 })).toHaveText(['Work', 'Now', 'Resources', 'Contact']);
-  await expect(page.locator('#now li')).toHaveCount(4);
-  await expect(page.locator('.resource-list li')).toHaveCount(5);
-  await expect(page.locator('.project-evidence > div')).toHaveCount(3);
+  await expect(page.getByRole('heading', { level: 2 })).toHaveText([
+    'The work is technical. The approach is human.',
+    'A small project, treated with care.',
+    'Ideas worth carrying into the work.',
+    'What are you trying to make better?',
+  ]);
+  await expect(page.locator('.principle-card')).toHaveCount(4);
+  await expect(page.locator('.resource-card')).toHaveCount(5);
+  await expect(page.locator('.release-steps li')).toHaveCount(4);
   await expect(page.getByRole('link', { name: 'View source' })).toHaveAttribute('href', 'https://github.com/lukepionk/lukepionk.com');
-  await expect(page.getByRole('link', { name: 'Email me' })).toHaveAttribute('href', 'mailto:l.a.pionk@gmail.com');
+  await expect(page.getByRole('link', { name: 'How I work' })).toHaveAttribute('href', '#now');
   await expect(page.locator('address')).toHaveCount(1);
   await expect(page.locator('body > footer')).toHaveCount(1);
   await expect(page.locator('form, script, iframe')).toHaveCount(0);
@@ -40,9 +45,9 @@ test('five sections are readable, accessible, and usable without JavaScript', as
     await page.setViewportSize(viewport);
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa', 'best-practice']).analyze();
     expect(results.violations, `accessibility violations at ${viewport.width}px`).toEqual([]);
-    const heroEmailBox = await page.getByRole('link', { name: 'Email me' }).boundingBox();
+    const heroActionBox = await page.getByRole('link', { name: 'How I work' }).boundingBox();
     const contactEmailBox = await page.getByRole('link', { name: 'l.a.pionk@gmail.com' }).boundingBox();
-    expect(heroEmailBox.height).toBeGreaterThanOrEqual(40);
+    expect(heroActionBox.height).toBeGreaterThanOrEqual(44);
     expect(contactEmailBox.height).toBeGreaterThanOrEqual(44);
   }
 
@@ -64,6 +69,7 @@ test('five sections are readable, accessible, and usable without JavaScript', as
 
   await page.goto('/');
   mkdirSync('.agent-scratch', { recursive: true });
+  await page.setViewportSize(testInfo.project.use.viewport || { width: 390, height: 844 });
   await page.screenshot({ path: `.agent-scratch/${testInfo.project.name}.png`, fullPage: true });
 });
 
@@ -73,5 +79,5 @@ test('missing-page document gives a useful route home', async ({ page }) => {
   const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa', 'best-practice']).analyze();
   expect(results.violations).toEqual([]);
   await page.getByRole('link', { name: 'Back to Luke Pionk’s website' }).click();
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Luke Pionk.');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I make complicated work clearer, more useful, and easier to trust.');
 });

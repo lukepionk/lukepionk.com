@@ -1,7 +1,7 @@
 # Luke Pionk
 
 Source for my personal website at **lukepionk.com**. Five sections: Header,
-Work, Now, Resources, and Contact.
+Now, Work, Resources, and Contact.
 
 The site is plain HTML and CSS. It needs no application server, database,
 JavaScript, cookies, remote fonts, or build step. The small scope keeps the
@@ -103,5 +103,5 @@ DNS requires ACM's exact validation CNAME records, an apex ALIAS to the
 distribution hostname, and a `www` CNAME to that hostname. Preserve mail and
 unrelated DNS records. Keep certificate validation records for automatic renewal.
 
-Design decisions and the first user-test protocol are in
-[the v1 design note](docs/design/specs/v1.md).
+Current design decisions are in [the v2 design note](docs/design/specs/v2.md).
+The [v1 design note](docs/design/specs/v1.md) remains as project history.

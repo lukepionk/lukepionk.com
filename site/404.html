@@ -5,18 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
     <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#f4f1ea">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/styles.css">
     <title>Page not found — Luke Pionk</title>
   </head>
-  <body>
-    <main class="wrap">
-      <div class="intro">
-        <p class="eyebrow">404 / Page not found</p>
-        <h1>A wrong turn.</h1>
-        <p class="intro-detail">There’s just one page here. You can find everything on it.</p>
-        <a class="text-link intro-link" href="/">Back to Luke Pionk’s website <span aria-hidden="true">↗</span></a>
+  <body class="error-page">
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="/" aria-label="Luke Pionk, home">
+          <svg class="brand-mug" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M10 18h25v11c0 7-5 12-12.5 12S10 36 10 29V18Z" fill="currentColor"/>
+            <path d="M35 22h3.5a6.5 6.5 0 0 1 0 13H34" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <path d="M17 13c-2-3 2-4 0-7M25 13c-2-3 2-4 0-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <span>Luke Pionk</span>
+        </a>
       </div>
+    </header>
+    <main class="error-main section-shell">
+      <p class="hero-eyebrow"><span aria-hidden="true"></span>404 / Page not found</p>
+      <h1 class="error-title">A wrong turn.</h1>
+      <p class="error-detail">There’s just one page here. You can find everything on it.</p>
+      <a class="button button-primary" href="/">Back to Luke Pionk’s website <span aria-hidden="true">↗</span></a>
     </main>
   </body>
 </html>
