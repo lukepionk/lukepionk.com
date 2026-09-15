@@ -14,13 +14,17 @@ test('five sections are readable, accessible, and usable without JavaScript', as
   });
   await page.goto('/');
 
-  await expect(page).toHaveTitle('Luke Pionk — Software, AI & operations');
+  await expect(page).toHaveTitle('Luke Pionk — Practical AI & software');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Luke Pionk.');
   await expect(page.locator('main > section')).toHaveCount(5);
-  await expect(page.getByRole('heading', { level: 2 })).toHaveText(['Now', 'Resources', 'Work', 'Contact']);
+  await expect(page.getByRole('heading', { level: 2 })).toHaveText(['Work', 'Now', 'Resources', 'Contact']);
   await expect(page.locator('#now li')).toHaveCount(4);
-  await expect(page.locator('.resource-list li')).toHaveCount(8);
-  await expect(page.getByRole('link', { name: 'View source on GitHub' })).toHaveAttribute('href', 'https://github.com/lukepionk/lukepionk.com');
+  await expect(page.locator('.resource-list li')).toHaveCount(5);
+  await expect(page.locator('.project-evidence > div')).toHaveCount(3);
+  await expect(page.getByRole('link', { name: 'View source' })).toHaveAttribute('href', 'https://github.com/lukepionk/lukepionk.com');
+  await expect(page.getByRole('link', { name: 'Email me' })).toHaveAttribute('href', 'mailto:l.a.pionk@gmail.com');
+  await expect(page.locator('address')).toHaveCount(1);
+  await expect(page.locator('body > footer')).toHaveCount(1);
   await expect(page.locator('form, script, iframe')).toHaveCount(0);
   expect(externalRequests).toEqual([]);
   expect(failures).toEqual([]);
@@ -32,9 +36,17 @@ test('five sections are readable, accessible, and usable without JavaScript', as
     expect(overflow, `horizontal overflow at ${width}px`).toBe(false);
   }
 
-  await page.setViewportSize(testInfo.project.use.viewport || { width: 390, height: 844 });
-  const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'best-practice']).analyze();
-  expect(results.violations).toEqual([]);
+  for (const viewport of [testInfo.project.use.viewport || { width: 390, height: 844 }, { width: 320, height: 900 }]) {
+    await page.setViewportSize(viewport);
+    const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa', 'best-practice']).analyze();
+    expect(results.violations, `accessibility violations at ${viewport.width}px`).toEqual([]);
+    const heroEmailBox = await page.getByRole('link', { name: 'Email me' }).boundingBox();
+    const contactEmailBox = await page.getByRole('link', { name: 'l.a.pionk@gmail.com' }).boundingBox();
+    expect(heroEmailBox.height).toBeGreaterThanOrEqual(40);
+    expect(contactEmailBox.height).toBeGreaterThanOrEqual(44);
+  }
+
+  await page.setViewportSize({ width: 320, height: 900 });
   await page.keyboard.press('Tab');
   await expect(page.getByRole('link', { name: 'Skip to content' })).toBeFocused();
   await page.keyboard.press('Enter');
@@ -58,6 +70,8 @@ test('five sections are readable, accessible, and usable without JavaScript', as
 test('missing-page document gives a useful route home', async ({ page }) => {
   await page.goto('/404.html');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('A wrong turn.');
+  const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa', 'best-practice']).analyze();
+  expect(results.violations).toEqual([]);
   await page.getByRole('link', { name: 'Back to Luke Pionk’s website' }).click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Luke Pionk.');
 });

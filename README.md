@@ -1,7 +1,7 @@
 # Luke Pionk
 
 Source for my personal website at **lukepionk.com**. Five sections: Header,
-Now, Resources, Work, and Contact.
+Work, Now, Resources, and Contact.
 
 The site is plain HTML and CSS. It needs no application server, database,
 JavaScript, cookies, remote fonts, or build step. The small scope keeps the
