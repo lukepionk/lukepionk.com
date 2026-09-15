@@ -2,6 +2,8 @@
 
 This repository builds Luke Pionk's personal website at lukepionk.com.
 
+- At session start, read `.agent-scratch/HANDOFF.md` and its linked private
+  context if present. These notes are local only; never force-add or publish them.
 - Keep v1 to Header, Now, Resources, Work, and Contact.
 - Use plain language and verifiable public examples. Never publish employer
   internals, source material from resumes, private project notes, or invented
