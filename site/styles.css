@@ -209,6 +209,66 @@ p { margin: 0 0 16px; }
 
 .release-steps li { padding: 2px 0; }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.learning-tabs {
+  margin: 24px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.tab-bar {
+  display: inline-flex;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #efece5;
+}
+
+.tab-bar label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 88px;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background-color .15s, color .15s;
+}
+
+.tab-bar label:hover { color: var(--ink); }
+
+#tab-read:checked ~ .tab-bar [for="tab-read"],
+#tab-listen:checked ~ .tab-bar [for="tab-listen"],
+#tab-watch:checked ~ .tab-bar [for="tab-watch"] {
+  background: var(--green);
+  color: var(--paper);
+}
+
+#tab-read:focus-visible ~ .tab-bar [for="tab-read"],
+#tab-listen:focus-visible ~ .tab-bar [for="tab-listen"],
+#tab-watch:focus-visible ~ .tab-bar [for="tab-watch"] {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+.learning-panel { display: none; }
+
+#tab-read:checked ~ .panel-read,
+#tab-listen:checked ~ .panel-listen,
+#tab-watch:checked ~ .panel-watch { display: block; }
+
 .resource-list {
   margin: 24px 0 0;
   padding: 0;
@@ -271,4 +331,5 @@ address { font-style: normal; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .tab-bar label { transition: none; }
 }

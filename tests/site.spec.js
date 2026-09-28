@@ -20,11 +20,12 @@ test('five sections are readable, accessible, and usable without JavaScript', as
   await expect(page.getByRole('heading', { level: 2 })).toHaveText([
     'Lessons I build by.',
     'Public work',
-    'Resources',
+    'Learning',
     'What are you trying to make better?',
   ]);
   await expect(page.locator('.lesson')).toHaveCount(4);
-  await expect(page.locator('.resource-list li')).toHaveCount(7);
+  await expect(page.locator('.learning-panel')).toHaveCount(3);
+  await expect(page.locator('.learning-panel li')).toHaveCount(13);
   await expect(page.locator('.release-steps li')).toHaveCount(4);
   await expect(page.getByRole('link', { name: 'View source' })).toHaveAttribute('href', 'https://github.com/lukepionk/lukepionk.com');
   await expect(page.locator('.hero-links a')).toHaveCount(3);
@@ -56,14 +57,24 @@ test('five sections are readable, accessible, and usable without JavaScript', as
   await expect(page.getByRole('link', { name: 'Skip to content' })).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page).toHaveURL(/#main$/);
-  await page.getByRole('navigation').getByRole('link', { name: 'Resources' }).click();
-  await expect(page).toHaveURL(/#resources$/);
+  await page.getByRole('navigation').getByRole('link', { name: 'Learning' }).click();
+  await expect(page).toHaveURL(/#learning$/);
   await expect(page.locator('.contact-email')).toHaveAttribute('href', 'mailto:l.a.pionk@gmail.com');
 
   const brokenAnchors = await page.evaluate(() => [...document.querySelectorAll('a[href^="#"]')]
     .map(a => a.getAttribute('href').slice(1))
     .filter(id => !document.getElementById(id)));
   expect(brokenAnchors).toEqual([]);
+
+  await expect(page.locator('.panel-read')).toBeVisible();
+  await expect(page.locator('.panel-watch')).toBeHidden();
+  await page.locator('label[for="tab-watch"]').click();
+  await expect(page.locator('.panel-watch')).toBeVisible();
+  await expect(page.locator('.panel-read')).toBeHidden();
+  await page.locator('#tab-read').focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(page.locator('#tab-listen')).toBeChecked();
+  await expect(page.locator('.panel-listen')).toBeVisible();
   await page.emulateMedia({ reducedMotion: 'reduce' });
   expect(await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior)).toBe('auto');
 

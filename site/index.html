@@ -25,7 +25,7 @@
         <nav aria-label="Main navigation">
           <a href="#now">Now</a>
           <a href="#work">Work</a>
-          <a href="#resources">Resources</a>
+          <a href="#learning">Learning</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -93,18 +93,39 @@
         </article>
       </section>
 
-      <section id="resources" aria-labelledby="resources-title">
-        <h2 id="resources-title">Resources</h2>
+      <section id="learning" aria-labelledby="learning-title">
+        <h2 id="learning-title">Learning</h2>
         <p>Where I actually learn: the model makers&rsquo; own documentation, a few great technical teachers, and the business side of my CPA brain.</p>
-        <ul class="resource-list">
-          <li><a href="https://www.anthropic.com/system-cards">Model system cards</a> <span class="meta">Anthropic</span><br>Before building on a new model, read what its makers tested, where it fell short, and what they chose not to claim. OpenAI&rsquo;s system cards serve the same purpose.</li>
-          <li><a href="https://www.anthropic.com/engineering/building-effective-agents">Building Effective Agents</a> <span class="meta">Anthropic</span><br>Its practical bias is restraint: start with simple workflows and add autonomy only when the task warrants it.</li>
-          <li><a href="https://www.youtube.com/@AndrejKarpathy">Andrej Karpathy</a> <span class="meta">YouTube</span><br>From-scratch lectures on how language models are actually built, for when an abstraction stops being enough.</li>
-          <li><a href="https://www.youtube.com/@3blue1brown">3Blue1Brown</a> <span class="meta">YouTube</span><br>Visual explanations of neural networks and transformers that make the math feel inspectable.</li>
-          <li><a href="https://www.youtube.com/@AswathDamodaranonValuation">Aswath Damodaran</a> <span class="meta">YouTube</span><br>An NYU finance professor on valuing a business: tell its story, then test the story with numbers.</li>
-          <li><a href="https://www.acquired.fm/">Acquired</a> <span class="meta">Podcast</span><br>Long histories of how great companies were built, useful for thinking about what makes a business durable.</li>
-          <li><a href="https://paulgraham.com/ds.html">Do Things That Don’t Scale</a> <span class="meta">Paul Graham</span><br>Its case is to stay close enough to early users that their awkward workarounds reshape what you build.</li>
-        </ul>
+        <fieldset class="learning-tabs">
+          <legend class="visually-hidden">Show</legend>
+          <input class="visually-hidden" type="radio" name="learning" id="tab-read" checked>
+          <input class="visually-hidden" type="radio" name="learning" id="tab-listen">
+          <input class="visually-hidden" type="radio" name="learning" id="tab-watch">
+          <div class="tab-bar">
+            <label for="tab-read">Read</label>
+            <label for="tab-listen">Listen</label>
+            <label for="tab-watch">Watch</label>
+          </div>
+          <ul class="resource-list learning-panel panel-read">
+              <li><a href="https://www.anthropic.com/system-cards">Model system cards</a> <span class="meta">Anthropic</span><br>Before building on a new model, read what its makers tested, where it fell short, and what they chose not to claim. OpenAI&rsquo;s system cards serve the same purpose.</li>
+              <li><a href="https://www.anthropic.com/engineering/building-effective-agents">Building Effective Agents</a> <span class="meta">Anthropic</span><br>Its practical bias is restraint: start with simple workflows and add autonomy only when the task warrants it.</li>
+              <li><a href="https://paulgraham.com/ds.html">Do Things That Don’t Scale</a> <span class="meta">Paul Graham</span><br>Its case is to stay close enough to early users that their awkward workarounds reshape what you build.</li>
+          </ul>
+          <ul class="resource-list learning-panel panel-listen">
+              <li><a href="https://www.acquired.fm/">Acquired</a> <span class="meta">Podcast</span><br>Long histories of how great companies were built, useful for thinking about what makes a business durable.</li>
+              <li><a href="https://www.lennysnewsletter.com/podcast">Lenny&rsquo;s Podcast</a> <span class="meta">Podcast</span><br>Product and growth leaders on how they actually make decisions, with specifics instead of slogans.</li>
+              <li><a href="https://www.npr.org/series/490248027/how-i-built-this">How I Built This</a> <span class="meta">Podcast</span><br>Founders telling how their companies started, including the parts that nearly failed.</li>
+              <li><a href="https://www.nytimes.com/column/the-daily">The Daily</a> <span class="meta">The New York Times</span><br>One news story a day, told in depth.</li>
+          </ul>
+          <ul class="resource-list learning-panel panel-watch">
+              <li><a href="https://www.youtube.com/@AndrejKarpathy">Andrej Karpathy</a> <span class="meta">YouTube</span><br>From-scratch lectures on how language models are actually built, for when an abstraction stops being enough.</li>
+              <li><a href="https://www.youtube.com/@3blue1brown">3Blue1Brown</a> <span class="meta">YouTube</span><br>Visual explanations of neural networks and transformers that make the math feel inspectable.</li>
+              <li><a href="https://www.youtube.com/@anthropic-ai">Anthropic</a> <span class="meta">YouTube</span><br>Talks and explainers from the team building Claude.</li>
+              <li><a href="https://www.youtube.com/@aiDotEngineer">AI Engineer</a> <span class="meta">YouTube</span><br>Conference talks from engineers shipping AI products, with an emphasis on what held up in production.</li>
+              <li><a href="https://www.youtube.com/@nateherk">Nate Herk</a> <span class="meta">YouTube</span><br>Step-by-step builds of AI automations and agents.</li>
+              <li><a href="https://www.youtube.com/@AswathDamodaranonValuation">Aswath Damodaran</a> <span class="meta">YouTube</span><br>An NYU finance professor on valuing a business: tell its story, then test the story with numbers.</li>
+          </ul>
+        </fieldset>
       </section>
 
       <section id="contact" aria-labelledby="contact-title">
