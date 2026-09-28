@@ -103,5 +103,5 @@ DNS requires ACM's exact validation CNAME records, an apex ALIAS to the
 distribution hostname, and a `www` CNAME to that hostname. Preserve mail and
 unrelated DNS records. Keep certificate validation records for automatic renewal.
 
-Current design decisions are in [the v2 design note](docs/design/specs/v2.md).
-The [v1 design note](docs/design/specs/v1.md) remains as project history.
+Current design decisions are in [the v3 design note](docs/design/specs/v3.md).
+The [v2](docs/design/specs/v2.md) and [v1](docs/design/specs/v1.md) notes remain as project history.
