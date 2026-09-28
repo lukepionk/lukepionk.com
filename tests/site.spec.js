@@ -1,6 +1,8 @@
 const { test, expect } = require('@playwright/test');
 const AxeBuilder = require('@axe-core/playwright').default;
-const { mkdirSync } = require('node:fs');
+const { mkdirSync, readFileSync } = require('node:fs');
+const { createHash } = require('node:crypto');
+const fingerprint = file => createHash('sha256').update(readFileSync(`site/${file}`)).digest('hex').slice(0, 8);
 
 test('five sections are readable, accessible, and usable without JavaScript', async ({ page }, testInfo) => {
   const failures = [];
@@ -82,6 +84,15 @@ test('five sections are readable, accessible, and usable without JavaScript', as
   mkdirSync('.agent-scratch', { recursive: true });
   await page.setViewportSize(testInfo.project.use.viewport || { width: 390, height: 844 });
   await page.screenshot({ path: `.agent-scratch/${testInfo.project.name}.png`, fullPage: true });
+});
+
+test('asset links carry current fingerprints and icons have intrinsic sizes', async ({ page }) => {
+  for (const path of ['/', '/404.html']) {
+    await page.goto(path);
+    await expect(page.locator('link[rel="stylesheet"]')).toHaveAttribute('href', `/styles.css?v=${fingerprint('styles.css')}`);
+    await expect(page.locator('link[rel="icon"]')).toHaveAttribute('href', `/favicon.svg?v=${fingerprint('favicon.svg')}`);
+    expect(await page.locator('svg:not([width])').count()).toBe(0);
+  }
 });
 
 test('missing-page document gives a useful route home', async ({ page }) => {
