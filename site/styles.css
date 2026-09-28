@@ -2,11 +2,11 @@
 
 :root {
   color-scheme: light;
-  --paper: #f7f5f0;
+  --paper: #fcfbf9;
   --ink: #1a1f1c;
   --muted: #5b625e;
-  --green: #1f5a40;
-  --line: #dcd8cf;
+  --accent: #1d3a5f;
+  --line: #e2dfd8;
   --measure: 42rem;
 }
 
@@ -28,7 +28,7 @@ body {
 }
 
 a {
-  color: var(--green);
+  color: var(--accent);
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
 }
@@ -36,7 +36,7 @@ a {
 a:hover { text-decoration-thickness: 2px; }
 
 a:focus-visible {
-  outline: 2px solid var(--green);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -75,6 +75,9 @@ a:focus-visible {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   color: var(--ink);
   font-weight: 650;
   text-decoration: none;
@@ -162,6 +165,8 @@ p { margin: 0 0 16px; }
   min-height: 44px;
 }
 
+.brand svg { width: 26px; height: 26px; }
+
 .icon-link {
   justify-content: center;
   min-width: 44px;
@@ -229,7 +234,7 @@ p { margin: 0 0 16px; }
   padding: 4px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: #efece5;
+  background: #f2f0eb;
 }
 
 .tab-bar label {
@@ -252,14 +257,14 @@ p { margin: 0 0 16px; }
 #tab-read:checked ~ .tab-bar [for="tab-read"],
 #tab-listen:checked ~ .tab-bar [for="tab-listen"],
 #tab-watch:checked ~ .tab-bar [for="tab-watch"] {
-  background: var(--green);
+  background: var(--accent);
   color: var(--paper);
 }
 
 #tab-read:focus-visible ~ .tab-bar [for="tab-read"],
 #tab-listen:focus-visible ~ .tab-bar [for="tab-listen"],
 #tab-watch:focus-visible ~ .tab-bar [for="tab-watch"] {
-  outline: 2px solid var(--green);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
