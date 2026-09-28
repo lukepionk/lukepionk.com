@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
-    <meta name="theme-color" content="#f4f1ea">
+    <meta name="theme-color" content="#f7f5f0">
     <meta name="description" content="Luke Pionk designs and builds AI and data systems for work that has to be trusted, drawing on a background in IT audit, security, and finance.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Luke Pionk — AI and data systems for work that has to be trusted">
@@ -20,15 +20,8 @@
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
-      <div class="nav-shell">
-        <a class="brand" href="#top" aria-label="Luke Pionk, back to top">
-          <svg class="brand-mug" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-            <path d="M10 18h25v11c0 7-5 12-12.5 12S10 36 10 29V18Z" fill="currentColor"/>
-            <path d="M35 22h3.5a6.5 6.5 0 0 1 0 13H34" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-            <path d="M17 13c-2-3 2-4 0-7M25 13c-2-3 2-4 0-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-          </svg>
-          <span>Luke Pionk</span>
-        </a>
+      <div class="shell nav-shell">
+        <a class="brand" href="#top">Luke Pionk</a>
         <nav aria-label="Main navigation">
           <a href="#now">Now</a>
           <a href="#work">Work</a>
@@ -38,227 +31,99 @@
       </div>
     </header>
 
-    <main id="main">
-      <section class="hero section-shell" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="hero-eyebrow"><span aria-hidden="true"></span>Nashville, Tennessee</p>
-          <h1 id="hero-title">I build AI and data systems for work that has to be trusted.</h1>
-          <p class="hero-detail">Lately that means compliance review automation: rules handle what must be reproducible, AI handles the judgment calls, and people keep the final decision. Before software, I worked in IT audit, security, and finance, so I start with the process and the people inside it.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#now">How I work <span aria-hidden="true">↓</span></a>
-            <a class="button button-secondary" href="#work">See public work <span aria-hidden="true">↘</span></a>
-          </div>
-          <p class="career-path"><strong>Now:</strong> AI and data systems <span aria-hidden="true">·</span> <strong>Before:</strong> analytics, finance, IT audit and security</p>
-        </div>
+    <main id="main" class="shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="meta">Nashville, Tennessee</p>
+        <h1 id="hero-title">I build AI and data systems for work that has to be trusted.</h1>
+        <p>Lately that means compliance review automation: rules handle what must be reproducible, AI handles the judgment calls, and people keep the final decision. Before software, I worked in IT audit, security, and finance, so I start with the process and the people inside it.</p>
+        <p class="meta"><strong>Now:</strong> AI and data systems <span aria-hidden="true">·</span> <strong>Before:</strong> analytics, finance, IT audit and security</p>
+        <p class="hero-links">
+          <a href="mailto:l.a.pionk@gmail.com">l.a.pionk@gmail.com</a>
+          <a href="https://www.linkedin.com/in/lukeapionk/">LinkedIn</a>
+          <a href="https://github.com/lukepionk">GitHub</a>
+        </p>
+      </section>
 
-        <div class="hero-art" aria-hidden="true">
-          <span class="art-word art-word-people">People</span>
-          <span class="art-word art-word-business">Business</span>
-          <span class="art-word art-word-systems">Systems</span>
-          <div class="art-orbit art-orbit-one"></div>
-          <div class="art-orbit art-orbit-two"></div>
-          <div class="mug-disc">
-            <svg class="hero-mug" viewBox="0 0 180 180" fill="none">
-              <path d="M43 69h78v38c0 24-16 41-39 41s-39-17-39-41V69Z" fill="currentColor"/>
-              <path d="M121 81h13c14 0 25 11 25 25s-11 25-25 25h-15" stroke="currentColor" stroke-width="12" stroke-linecap="round"/>
-              <path d="M64 52c-8-11 8-15 0-28M88 52c-8-11 8-15 0-28" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <span class="art-note">Listen closely.<br>Build carefully.</span>
+      <section id="now" aria-labelledby="now-title">
+        <h2 id="now-title">Lessons I build by.</h2>
+        <p>Each one came from real work, and most came from getting something wrong first.</p>
+        <div class="lesson">
+          <h3>Decide what has to be trusted first.</h3>
+          <p>My first attempt at automating a compliance review asked a model to do the whole job. The demos looked impressive, but the answers changed between runs. Rules now carry that load, and the model handles only the judgment calls.</p>
+        </div>
+        <div class="lesson">
+          <h3>Show a working version.</h3>
+          <p>A written proposal to explore automation didn&rsquo;t win support. A small prototype, tested with the people who would use it, did. Now I build something real before I argue for it.</p>
+        </div>
+        <div class="lesson">
+          <h3>Write down what the experts know.</h3>
+          <p>The most useful automated checks I&rsquo;ve built came from sitting with specialists and recording what they actually look for. It also made them co-authors, and co-authors champion the result.</p>
+        </div>
+        <div class="lesson">
+          <h3>Check the claimed value.</h3>
+          <p>In finance, I tested whether a promised improvement showed up in actual performance before counting it as savings. I hold software to the same standard: measure whether it helped.</p>
         </div>
       </section>
 
-      <section id="now" class="chapter chapter-light">
-        <div class="section-shell">
-          <div class="chapter-heading">
-            <p class="chapter-kicker">01 / How I work</p>
-            <h2>Lessons I build by.</h2>
-            <p>Each one came from real work, and most came from getting something wrong first.</p>
-          </div>
-
-          <div class="principle-grid">
-            <article class="principle-card">
-              <span>01</span>
-              <h3>Decide what has to be trusted first.</h3>
-              <p>My first attempt at automating a compliance review asked a model to do the whole job. The demos looked impressive, but the answers changed between runs. Rules now carry that load, and the model handles only the judgment calls.</p>
-            </article>
-            <article class="principle-card">
-              <span>02</span>
-              <h3>Show a working version.</h3>
-              <p>A written proposal to explore automation didn&rsquo;t win support. A small prototype, tested with the people who would use it, did. Now I build something real before I argue for it.</p>
-            </article>
-            <article class="principle-card">
-              <span>03</span>
-              <h3>Write down what the experts know.</h3>
-              <p>The most useful automated checks I&rsquo;ve built came from sitting with specialists and recording what they actually look for. It also made them co-authors, and co-authors champion the result.</p>
-            </article>
-            <article class="principle-card">
-              <span>04</span>
-              <h3>Check the claimed value.</h3>
-              <p>In finance, I tested whether a promised improvement showed up in actual performance before counting it as savings. I hold software to the same standard: measure whether it helped.</p>
-            </article>
-          </div>
-        </div>
+      <section id="work" aria-labelledby="work-title">
+        <h2 id="work-title">Public work</h2>
+        <p>Most of my professional work is private. This site is a public example of how I think about purpose, simplicity, quality, and stewardship.</p>
+        <article class="project">
+          <h3>lukepionk.com</h3>
+          <p>I wanted a durable place to show more than a résumé can: what I care about, how I make decisions, and the standard I bring to even a small system.</p>
+          <dl>
+            <dt>Purpose</dt>
+            <dd>Make the story clear, the evidence inspectable, and contact easy.</dd>
+            <dt>Build</dt>
+            <dd>Static HTML and CSS with no runtime JavaScript, application server, or external fonts.</dd>
+            <dt>Operate</dt>
+            <dd>Browser and accessibility checks, infrastructure as code, and releases verified file by file.</dd>
+          </dl>
+          <h4>Release path</h4>
+          <ol class="release-steps">
+            <li>Commit one clean revision</li>
+            <li>Test desktop, tablet, phone, keyboard, and accessibility</li>
+            <li>Publish only allowlisted files</li>
+            <li>Verify every uploaded file by SHA-256</li>
+          </ol>
+          <p class="project-links">
+            <a href="https://github.com/lukepionk/lukepionk.com">View source</a>
+            <a href="https://github.com/lukepionk/lukepionk.com#release">Inspect the release path</a>
+          </p>
+        </article>
       </section>
 
-      <section id="work" class="chapter chapter-dark">
-        <div class="section-shell">
-          <div class="chapter-heading chapter-heading-dark">
-            <p class="chapter-kicker">02 / Public work</p>
-            <h2>A small project, treated with care.</h2>
-            <p>Most of my professional work is private. This site is a public example of how I think about purpose, simplicity, quality, and stewardship.</p>
-          </div>
-
-          <div class="work-layout">
-            <article class="project-story">
-              <div class="project-title-row">
-                <h3>lukepionk.com</h3>
-                <span>Live</span>
-              </div>
-              <p>I wanted a durable place to show more than a résumé can: what I care about, how I make decisions, and the standard I bring to even a small system.</p>
-              <dl class="project-decisions">
-                <div>
-                  <dt>Purpose</dt>
-                  <dd>Make the story clear, the evidence inspectable, and contact easy.</dd>
-                </div>
-                <div>
-                  <dt>Build</dt>
-                  <dd>Static HTML and CSS with no runtime JavaScript, application server, or external fonts.</dd>
-                </div>
-                <div>
-                  <dt>Operate</dt>
-                  <dd>Browser and accessibility checks, infrastructure as code, and releases verified file by file.</dd>
-                </div>
-              </dl>
-              <div class="project-actions">
-                <a class="button button-light" href="https://github.com/lukepionk/lukepionk.com">View source <span aria-hidden="true">↗</span></a>
-                <a class="text-action" href="https://github.com/lukepionk/lukepionk.com#release">Inspect the release path <span aria-hidden="true">↗</span></a>
-              </div>
-            </article>
-
-            <div class="release-visual" aria-label="Release path: commit, test, publish, verify">
-              <div class="browser-bar">
-                <span></span><span></span><span></span>
-                <p>lukepionk.com</p>
-              </div>
-              <div class="release-body">
-                <p class="release-label">From idea to live site</p>
-                <ol class="release-steps">
-                  <li>
-                    <span>01</span>
-                    <div><strong>Commit</strong><small>One clean revision</small></div>
-                  </li>
-                  <li>
-                    <span>02</span>
-                    <div><strong>Test</strong><small>Desktop, mobile, keyboard, accessibility</small></div>
-                  </li>
-                  <li>
-                    <span>03</span>
-                    <div><strong>Publish</strong><small>Only six approved public files</small></div>
-                  </li>
-                  <li>
-                    <span>04</span>
-                    <div><strong>Verify</strong><small>Every uploaded file checked by SHA-256</small></div>
-                  </li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </div>
+      <section id="resources" aria-labelledby="resources-title">
+        <h2 id="resources-title">Resources</h2>
+        <p>Where I actually learn: the model makers&rsquo; own documentation, a few great technical teachers, and the business side of my CPA brain.</p>
+        <ul class="resource-list">
+          <li><a href="https://www.anthropic.com/system-cards">Model system cards</a> <span class="meta">Anthropic</span><br>Before building on a new model, read what its makers tested, where it fell short, and what they chose not to claim. OpenAI&rsquo;s system cards serve the same purpose.</li>
+          <li><a href="https://www.anthropic.com/engineering/building-effective-agents">Building Effective Agents</a> <span class="meta">Anthropic</span><br>Its practical bias is restraint: start with simple workflows and add autonomy only when the task warrants it.</li>
+          <li><a href="https://www.youtube.com/@AndrejKarpathy">Andrej Karpathy</a> <span class="meta">YouTube</span><br>From-scratch lectures on how language models are actually built, for when an abstraction stops being enough.</li>
+          <li><a href="https://www.youtube.com/@3blue1brown">3Blue1Brown</a> <span class="meta">YouTube</span><br>Visual explanations of neural networks and transformers that make the math feel inspectable.</li>
+          <li><a href="https://www.youtube.com/@AswathDamodaranonValuation">Aswath Damodaran</a> <span class="meta">YouTube</span><br>An NYU finance professor on valuing a business: tell its story, then test the story with numbers.</li>
+          <li><a href="https://www.acquired.fm/">Acquired</a> <span class="meta">Podcast</span><br>Long histories of how great companies were built, useful for thinking about what makes a business durable.</li>
+          <li><a href="https://paulgraham.com/ds.html">Do Things That Don’t Scale</a> <span class="meta">Paul Graham</span><br>Its case is to stay close enough to early users that their awkward workarounds reshape what you build.</li>
+        </ul>
       </section>
 
-      <section id="resources" class="chapter chapter-resources">
-        <div class="section-shell">
-          <div class="chapter-heading">
-            <p class="chapter-kicker">03 / Resources</p>
-            <h2>Ideas worth carrying into the work.</h2>
-            <p>Where I actually learn: the model makers&rsquo; own documentation, a few great technical teachers, and the business side of my CPA brain.</p>
-          </div>
-
-          <div class="resource-grid">
-            <article class="resource-card">
-              <a href="https://www.anthropic.com/system-cards">
-                <span class="resource-category">AI in practice</span>
-                <h3>Model system cards <span aria-hidden="true">↗</span></h3>
-                <p>Before building on a new model, read what its makers tested, where it fell short, and what they chose not to claim. OpenAI&rsquo;s system cards serve the same purpose.</p>
-                <small>Anthropic · System cards</small>
-              </a>
-            </article>
-            <article class="resource-card">
-              <a href="https://www.anthropic.com/engineering/building-effective-agents">
-                <span class="resource-category">AI in practice</span>
-                <h3>Building Effective Agents <span aria-hidden="true">↗</span></h3>
-                <p>Its practical bias is restraint: start with simple workflows and add autonomy only when the task warrants it.</p>
-                <small>Anthropic · Guide</small>
-              </a>
-            </article>
-            <article class="resource-card">
-              <a href="https://www.youtube.com/@AndrejKarpathy">
-                <span class="resource-category">How it works</span>
-                <h3>Andrej Karpathy <span aria-hidden="true">↗</span></h3>
-                <p>From-scratch lectures on how language models are actually built, for when an abstraction stops being enough.</p>
-                <small>YouTube · Lectures</small>
-              </a>
-            </article>
-            <article class="resource-card">
-              <a href="https://www.youtube.com/@3blue1brown">
-                <span class="resource-category">How it works</span>
-                <h3>3Blue1Brown <span aria-hidden="true">↗</span></h3>
-                <p>Visual explanations of neural networks and transformers that make the math feel inspectable.</p>
-                <small>YouTube · Explainers</small>
-              </a>
-            </article>
-            <article class="resource-card">
-              <a href="https://www.youtube.com/@AswathDamodaranonValuation">
-                <span class="resource-category">Business &amp; investing</span>
-                <h3>Aswath Damodaran <span aria-hidden="true">↗</span></h3>
-                <p>An NYU finance professor on valuing a business: tell its story, then test the story with numbers.</p>
-                <small>YouTube · Courses</small>
-              </a>
-            </article>
-            <article class="resource-card">
-              <a href="https://www.acquired.fm/">
-                <span class="resource-category">Business &amp; investing</span>
-                <h3>Acquired <span aria-hidden="true">↗</span></h3>
-                <p>Long histories of how great companies were built, useful for thinking about what makes a business durable.</p>
-                <small>Podcast</small>
-              </a>
-            </article>
-            <article class="resource-card resource-card-wide">
-              <a href="https://paulgraham.com/ds.html">
-                <span class="resource-category">People &amp; product</span>
-                <h3>Do Things That Don’t Scale <span aria-hidden="true">↗</span></h3>
-                <p>Its case is to stay close enough to early users that their awkward workarounds reshape what you build.</p>
-                <small>Paul Graham · Essay</small>
-              </a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="contact-chapter">
-        <div class="section-shell contact-layout">
-          <div>
-            <p class="chapter-kicker">04 / Contact</p>
-            <h2>What are you trying to make better?</h2>
-            <p>I enjoy comparing notes on difficult systems, useful technology, and how organizations actually work.</p>
-          </div>
-          <address class="contact-card">
-            <p>The simplest place to start</p>
-            <a class="contact-email" href="mailto:l.a.pionk@gmail.com">l.a.pionk@gmail.com <span aria-hidden="true">↗</span></a>
-            <div class="contact-links">
-              <a href="https://www.linkedin.com/in/lukeapionk/">LinkedIn <span aria-hidden="true">↗</span></a>
-              <a href="https://github.com/lukepionk">GitHub <span aria-hidden="true">↗</span></a>
-            </div>
-          </address>
-        </div>
+      <section id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">What are you trying to make better?</h2>
+        <p>I enjoy comparing notes on difficult systems, useful technology, and how organizations actually work.</p>
+        <address>
+          <a class="contact-email" href="mailto:l.a.pionk@gmail.com">l.a.pionk@gmail.com</a>
+          <span class="contact-links">
+            <a href="https://www.linkedin.com/in/lukeapionk/">LinkedIn</a>
+            <a href="https://github.com/lukepionk">GitHub</a>
+          </span>
+        </address>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="section-shell">
+      <div class="shell">
         <span>Luke Pionk · Nashville, Tennessee</span>
-        <a href="#top">Back to top ↑</a>
+        <a href="#top">Back to top</a>
       </div>
     </footer>
   </body>
