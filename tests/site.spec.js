@@ -14,17 +14,17 @@ test('five sections are readable, accessible, and usable without JavaScript', as
   });
   await page.goto('/');
 
-  await expect(page).toHaveTitle('Luke Pionk — Making complicated work better');
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I make complicated work clearer, more useful, and easier to trust.');
+  await expect(page).toHaveTitle('Luke Pionk — AI and data systems for work that has to be trusted');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I build AI and data systems for work that has to be trusted.');
   await expect(page.locator('main > section')).toHaveCount(5);
   await expect(page.getByRole('heading', { level: 2 })).toHaveText([
-    'The work is technical. The approach is human.',
+    'Lessons I build by.',
     'A small project, treated with care.',
     'Ideas worth carrying into the work.',
     'What are you trying to make better?',
   ]);
   await expect(page.locator('.principle-card')).toHaveCount(4);
-  await expect(page.locator('.resource-card')).toHaveCount(5);
+  await expect(page.locator('.resource-card')).toHaveCount(7);
   await expect(page.locator('.release-steps li')).toHaveCount(4);
   await expect(page.getByRole('link', { name: 'View source' })).toHaveAttribute('href', 'https://github.com/lukepionk/lukepionk.com');
   await expect(page.getByRole('link', { name: 'How I work' })).toHaveAttribute('href', '#now');
@@ -79,5 +79,5 @@ test('missing-page document gives a useful route home', async ({ page }) => {
   const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa', 'best-practice']).analyze();
   expect(results.violations).toEqual([]);
   await page.getByRole('link', { name: 'Back to Luke Pionk’s website' }).click();
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I make complicated work clearer, more useful, and easier to trust.');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I build AI and data systems for work that has to be trusted.');
 });

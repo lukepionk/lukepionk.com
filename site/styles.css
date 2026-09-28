@@ -234,27 +234,12 @@ h1 {
 }
 
 .career-path {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 12px;
   margin: 38px 0 0;
-  padding: 0;
   color: var(--muted);
   font-size: 12px;
-  list-style: none;
 }
 
-.career-path li {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.career-path li:not(:last-child)::after {
-  content: "→";
-  color: var(--clay);
-}
+.career-path strong { color: var(--ink); font-weight: 600; }
 
 .hero-art {
   position: relative;
@@ -409,6 +394,7 @@ h1 {
 .principle-card:nth-child(4) { background: var(--blue-pale); }
 
 .principle-card > span {
+  margin-bottom: 28px;
   color: var(--green);
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   font-size: 11px;
@@ -860,8 +846,6 @@ h1 {
   nav { gap: 0 10px; }
   nav a { font-size: 11px; }
   .button { width: 100%; }
-  .career-path li:not(:last-child)::after { display: none; }
-  .career-path { gap: 7px 14px; }
   .contact-email { font-size: 21px; }
 }
 
