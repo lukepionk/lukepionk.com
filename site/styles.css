@@ -42,7 +42,7 @@ a:focus-visible {
 }
 
 .shell {
-  width: min(100% - 48px, 1040px);
+  width: min(100% - 48px, var(--measure));
   margin: 0 auto;
 }
 
@@ -240,7 +240,7 @@ address { font-style: normal; }
 
 @media (max-width: 640px) {
   body { font-size: 17px; }
-  .shell { width: min(100% - 40px, 1040px); }
+  .shell { width: min(100% - 40px, var(--measure)); }
   main > section { padding-top: 64px; }
   main > section:last-child { padding-bottom: 64px; }
   .hero { padding-top: 40px; }
