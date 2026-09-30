@@ -39,7 +39,8 @@ a {
 
 a:hover { text-decoration-thickness: 2px; }
 
-a:focus-visible {
+a:focus-visible,
+summary:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 2px;
@@ -140,6 +141,16 @@ h3 {
 }
 
 p { margin: 0 0 16px; }
+
+summary {
+  min-height: 48px;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+summary:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 .meta {
   color: var(--muted);
@@ -314,7 +325,7 @@ p { margin: 0 0 16px; }
   display: grid;
   grid-column: 1 / -1;
   grid-template-columns: 1.15fr 1fr;
-  gap: 56px;
+  gap: 28px 56px;
   padding: 40px;
   border-color: var(--navy);
   background: var(--navy);
@@ -353,6 +364,16 @@ p { margin: 0 0 16px; }
   border-top: 1px solid var(--navy-line);
 }
 
+.project-story {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--navy-line);
+}
+
+.project-story > summary { color: var(--gold); }
+.project-story > summary:focus-visible { outline-color: var(--gold); }
+.story-body { max-width: 75ch; padding-top: 8px; font-size: 16px; }
+.story-body p:last-child { margin-bottom: 0; }
+
 .project-reporting { background: #eaf0f3; border-color: #d3dfe6; }
 .project-reporting .project-icon { color: #345569; border-color: #d3dfe6; }
 .project-reporting .eyebrow { color: #33536a; }
@@ -372,6 +393,35 @@ p { margin: 0 0 16px; }
 .lesson { padding-top: 24px; border-top: 1px solid var(--line); }
 .lesson h3 { font-size: 21px; line-height: 1.3; }
 .lesson p { margin: 12px 0 0; color: var(--muted); font-size: 16px; }
+
+.mentoring { margin: 28px 0 0; color: var(--muted); font-size: 16px; }
+
+.personal-path {
+  margin-top: 36px;
+  padding: 28px 32px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #efece3;
+}
+
+.personal-path > h3 { font-size: 23px; }
+.personal-path > p { margin: 8px 0 20px; color: var(--muted); }
+.career-details { border-top: 1px solid #d6d4c9; }
+.career-details > summary { color: var(--accent); }
+
+.career-path {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 40px;
+  margin: 16px 0 0;
+  padding-left: 24px;
+}
+
+.career-path li { padding-left: 4px; }
+.career-path li::marker { color: #735b29; font-weight: 600; }
+.career-path h4 { margin: 0; font-size: 16px; font-weight: 600; }
+.career-path p { margin: 8px 0 0; color: var(--muted); font-size: 15px; }
+.career-path strong { color: var(--ink); font-weight: 600; }
 
 .learning-section {
   display: grid;
@@ -482,7 +532,6 @@ p { margin: 0 0 16px; }
 }
 
 .contact-panel h2 { max-width: 20ch; font-size: 32px; }
-.contact-panel p { max-width: 38ch; margin: 16px 0 0; color: var(--on-navy); font-size: 16px; }
 .contact-panel a { color: var(--gold); }
 .contact-panel a:hover { color: var(--paper); }
 .contact-panel a:focus-visible { outline-color: var(--gold); }
@@ -565,6 +614,8 @@ address {
   .project-category { gap: 12px; }
   .project-category .eyebrow { font-size: 11px; }
   .lesson-grid { gap: 28px; }
+  .personal-path { padding: 24px; }
+  .career-path { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .learning-section { gap: 12px; }
   .contact-panel { gap: 28px; padding: 28px 24px; }
   .contact-panel h2 { font-size: 28px; }

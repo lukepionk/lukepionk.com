@@ -25,7 +25,7 @@ test('five sections are readable, accessible, and usable without JavaScript', as
     'Learning',
     'Let’s talk.',
   ]);
-  await expect(page.locator('.lesson')).toHaveCount(4);
+  await expect(page.locator('.lesson')).toHaveCount(2);
   await expect(page.locator('.learning-panel')).toHaveCount(3);
   await expect(page.locator('.learning-panel li')).toHaveCount(23);
   await expect(page.locator('.hero-links a')).toHaveCount(3);
@@ -34,6 +34,11 @@ test('five sections are readable, accessible, and usable without JavaScript', as
   await expect(page.locator('form, script, iframe')).toHaveCount(0);
   expect(externalRequests).toEqual([]);
   expect(failures).toEqual([]);
+
+  // Expanded stories and career history must fit the same small screens.
+  for (const summary of await page.locator('details > summary').all()) {
+    await summary.click();
+  }
 
   // Check both the normal viewport and a narrow phone / 200% desktop zoom equivalent.
   for (const width of [testInfo.project.use.viewport?.width || 390, 320, 720, 768, 1024]) {
@@ -52,6 +57,7 @@ test('five sections are readable, accessible, and usable without JavaScript', as
     expect(contactEmailBox.height).toBeGreaterThanOrEqual(44);
   }
 
+  await page.goto('/');
   await page.setViewportSize({ width: 320, height: 900 });
   await page.keyboard.press('Tab');
   await expect(page.getByRole('link', { name: 'Skip to content' })).toBeFocused();
@@ -82,6 +88,37 @@ test('five sections are readable, accessible, and usable without JavaScript', as
   mkdirSync('.agent-scratch', { recursive: true });
   await page.setViewportSize(testInfo.project.use.viewport || { width: 390, height: 844 });
   await page.screenshot({ path: `.agent-scratch/${testInfo.project.name}.png`, fullPage: true });
+});
+
+test.describe('optional work and background details', () => {
+  // Settle keyboard focus without scroll animation before pointer assertions.
+  test.use({ javaScriptEnabled: false, reducedMotion: 'reduce' });
+
+  test('readers can explore and close each story using keys or a pointer', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('.project-outcome')).toBeVisible();
+    await expect(page.locator('.credentials')).toBeVisible();
+
+    for (const selector of ['.project-story', '.career-details']) {
+      const details = page.locator(selector);
+      const summary = details.locator('summary');
+      const content = details.locator(':scope > :not(summary)').first();
+      await expect(content).toBeHidden();
+      await summary.focus();
+      await page.keyboard.press('Enter');
+      await expect(content).toBeVisible();
+      await expect(summary).toBeFocused();
+      expect((await summary.boundingBox()).height).toBeGreaterThanOrEqual(44);
+      await page.keyboard.press('Space');
+      await expect(content).toBeHidden();
+      await summary.click();
+      await expect(content).toBeVisible();
+    }
+
+    // Opening the path must not close a work story someone is comparing.
+    await expect(page.locator('.project-story .story-body')).toBeVisible();
+    await expect(page.locator('.career-path')).toBeVisible();
+  });
 });
 
 test('asset links carry current fingerprints and icons have intrinsic sizes', async ({ page }) => {
