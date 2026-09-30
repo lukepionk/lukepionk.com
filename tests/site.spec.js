@@ -16,20 +16,18 @@ test('five sections are readable, accessible, and usable without JavaScript', as
   });
   await page.goto('/');
 
-  await expect(page).toHaveTitle('Luke Pionk — AI and data systems for work that has to be trusted');
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I build AI and data systems for work that has to be trusted.');
+  await expect(page).toHaveTitle('Luke Pionk — AI agents and data systems for work that has to be trusted');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I build AI agents and data systems for work that has to be trusted.');
   await expect(page.locator('main > section')).toHaveCount(5);
   await expect(page.getByRole('heading', { level: 2 })).toHaveText([
+    'Work',
     'Lessons I build by.',
-    'Public work',
     'Learning',
     'What are you trying to make better?',
   ]);
   await expect(page.locator('.lesson')).toHaveCount(4);
   await expect(page.locator('.learning-panel')).toHaveCount(3);
   await expect(page.locator('.learning-panel li')).toHaveCount(13);
-  await expect(page.locator('.release-steps li')).toHaveCount(4);
-  await expect(page.getByRole('link', { name: 'View source' })).toHaveAttribute('href', 'https://github.com/lukepionk/lukepionk.com');
   await expect(page.locator('.hero-links a')).toHaveCount(3);
   await expect(page.locator('address')).toHaveCount(1);
   await expect(page.locator('body > footer')).toHaveCount(1);
@@ -101,5 +99,5 @@ test('missing-page document gives a useful route home', async ({ page }) => {
   const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa', 'best-practice']).analyze();
   expect(results.violations).toEqual([]);
   await page.getByRole('link', { name: 'Back to Luke Pionk’s website' }).click();
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I build AI and data systems for work that has to be trusted.');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I build AI agents and data systems for work that has to be trusted.');
 });
