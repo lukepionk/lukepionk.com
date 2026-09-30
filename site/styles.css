@@ -438,6 +438,20 @@ p { margin: 0 0 16px; }
 }
 
 .learning-panel { display: none; }
+.panel-read > h3 { margin: 24px 0 16px; }
+
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 28px;
+  margin: 0 0 32px;
+  padding: 0;
+  list-style: none;
+}
+
+.book-list li { font-size: 16px; line-height: 1.45; }
+.book-title { display: block; font-weight: 600; }
+.book-list .meta { display: block; margin-top: 4px; font-size: 14px; }
 
 #tab-read:checked ~ .panel-read,
 #tab-listen:checked ~ .panel-listen,
@@ -556,6 +570,7 @@ address {
   .contact-panel h2 { font-size: 28px; }
   .contact-email { font-size: 19px; }
   .tab-bar label { min-width: 76px; padding: 0 14px; }
+  .book-list { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (prefers-reduced-motion: reduce) {

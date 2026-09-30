@@ -21,13 +21,13 @@ test('five sections are readable, accessible, and usable without JavaScript', as
   await expect(page.locator('main > section')).toHaveCount(5);
   await expect(page.getByRole('heading', { level: 2 })).toHaveText([
     'Work',
-    'Lessons I build by.',
+    'How I work',
     'Learning',
-    'What are you trying to make better?',
+    'Let’s talk.',
   ]);
   await expect(page.locator('.lesson')).toHaveCount(4);
   await expect(page.locator('.learning-panel')).toHaveCount(3);
-  await expect(page.locator('.learning-panel li')).toHaveCount(13);
+  await expect(page.locator('.learning-panel li')).toHaveCount(23);
   await expect(page.locator('.hero-links a')).toHaveCount(3);
   await expect(page.locator('address')).toHaveCount(1);
   await expect(page.locator('body > footer')).toHaveCount(1);
