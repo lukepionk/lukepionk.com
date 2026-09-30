@@ -35,7 +35,7 @@ test('five sections are readable, accessible, and usable without JavaScript', as
   expect(externalRequests).toEqual([]);
   expect(failures).toEqual([]);
 
-  // Expanded stories and career history must fit the same small screens.
+  // Expanded work and coursework must fit the same small screens.
   for (const summary of await page.locator('details > summary').all()) {
     await summary.click();
   }
@@ -90,7 +90,7 @@ test('five sections are readable, accessible, and usable without JavaScript', as
   await page.screenshot({ path: `.agent-scratch/${testInfo.project.name}.png`, fullPage: true });
 });
 
-test.describe('optional work, background, and coursework details', () => {
+test.describe('optional work and coursework details', () => {
   // Settle keyboard focus without scroll animation before pointer assertions.
   test.use({ javaScriptEnabled: false, reducedMotion: 'reduce' });
 
@@ -98,8 +98,9 @@ test.describe('optional work, background, and coursework details', () => {
     await page.goto('/');
     await expect(page.locator('.project-outcome')).toBeVisible();
     await expect(page.locator('.credentials')).toBeVisible();
+    await expect(page.locator('.career-path')).toBeVisible();
 
-    for (const selector of ['.project-story', '.career-details', '.course-details']) {
+    for (const selector of ['.project-story', '.course-details']) {
       const details = page.locator(selector);
       const summary = details.locator('summary');
       const content = details.locator(':scope > :not(summary)').first();
@@ -117,7 +118,6 @@ test.describe('optional work, background, and coursework details', () => {
 
     // Opening another disclosure must not close content someone is comparing.
     await expect(page.locator('.project-story .story-body')).toBeVisible();
-    await expect(page.locator('.career-path')).toBeVisible();
     await expect(page.locator('.course-list')).toBeVisible();
   });
 });

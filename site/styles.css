@@ -403,9 +403,6 @@ summary:hover { text-decoration: underline; text-underline-offset: 4px; }
 }
 
 .personal-path > h3 { font-size: 23px; }
-.personal-path > p { margin: 8px 0 20px; color: var(--muted); }
-.career-details { border-top: 1px solid #d6d4c9; }
-.career-details > summary { color: var(--accent); }
 
 .career-path {
   display: grid;
