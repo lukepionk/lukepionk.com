@@ -25,6 +25,7 @@ test('five sections are readable, accessible, and usable without JavaScript', as
     'Learning',
     'Let’s talk.',
   ]);
+  await expect(page.locator('.project')).toHaveCount(4);
   await expect(page.locator('.lesson')).toHaveCount(2);
   await expect(page.locator('.learning-panel')).toHaveCount(3);
   await expect(page.locator('.learning-panel li')).toHaveCount(23);
@@ -96,7 +97,8 @@ test.describe('optional work and coursework details', () => {
 
   test('readers can explore and close each story using keys or a pointer', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('.project-outcome')).toBeVisible();
+    await expect(page.locator('.project-featured .project-outcome')).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Read the code on GitHub' })).toHaveAttribute('href', 'https://github.com/lukepionk/nashville-school-navigator');
     await expect(page.locator('.credentials')).toBeVisible();
     await expect(page.locator('.career-path')).toBeVisible();
 

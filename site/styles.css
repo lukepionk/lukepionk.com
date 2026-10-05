@@ -374,6 +374,30 @@ summary:hover { text-decoration: underline; text-underline-offset: 4px; }
 .story-body { max-width: 75ch; padding-top: 8px; font-size: 16px; }
 .story-body p:last-child { margin-bottom: 0; }
 
+.project-public {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 28px 56px;
+  background: #f6f8f9;
+}
+
+.project-public h3 { max-width: 18ch; }
+.project-public .eyebrow { color: #33536a; }
+.project-public .project-icon { color: #345569; }
+.project-public .project-note { color: var(--muted); }
+
+.project-public .project-contribution {
+  align-self: center;
+  margin-top: 0;
+  padding: 0 0 0 36px;
+  border-top: 0;
+  border-left: 1px solid var(--line);
+}
+
+.project-public .project-contribution p + p { margin-top: 16px; }
+.project-link { font-weight: 600; }
+
 .project-reporting { background: #eaf0f3; border-color: #d3dfe6; }
 .project-reporting .project-icon { color: #345569; border-color: #d3dfe6; }
 .project-reporting .eyebrow { color: #33536a; }
@@ -603,7 +627,7 @@ address {
 @media (max-width: 900px) {
   .credentials { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .project-featured { gap: 32px; }
-  .project-featured .project-contribution { padding-left: 28px; }
+  .project-featured .project-contribution, .project-public .project-contribution { padding-left: 28px; }
   .project { padding: 28px; }
   .project h3 { font-size: 28px; }
   .project-featured h3 { font-size: 36px; }
@@ -638,7 +662,8 @@ address {
   .section-heading p { max-width: 30rem; }
   .work-grid, .lesson-grid, .learning-section, .contact-panel { grid-template-columns: minmax(0, 1fr); }
   .project { padding: 24px; }
-  .project-featured { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .project-featured, .project-public { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .project-public .project-contribution { padding: 24px 0 0; border-left: 0; border-top: 1px solid var(--line); }
   .project-featured h3 { max-width: none; font-size: 34px; }
   .project-featured .project-contribution { padding: 24px 0 0; border-top: 1px solid var(--navy-line); border-left: 0; }
   .project-category { gap: 12px; }

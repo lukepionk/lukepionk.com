@@ -8,12 +8,12 @@
     <meta name="description" content="Luke Pionk, senior technical program manager at Amazon, builds AI agents and data systems and leads software delivery.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Luke Pionk — AI agents and data systems for work that has to be trusted">
-    <meta property="og:description" content="I work with the people closest to a problem, build the software, and lead it from prototype to production.">
+    <meta property="og:description" content="I work with the people closest to a problem, build the software in Python and SQL, and lead it from prototype to production.">
     <meta property="og:url" content="https://lukepionk.com/">
     <meta property="og:locale" content="en_US">
     <link rel="canonical" href="https://lukepionk.com/">
     <link rel="icon" href="/favicon.svg?v=44358af8" type="image/svg+xml">
-    <link rel="stylesheet" href="/styles.css?v=fa80fa9e">
+    <link rel="stylesheet" href="/styles.css?v=f983b736">
     <title>Luke Pionk — AI agents and data systems for work that has to be trusted</title>
   </head>
   <body id="top">
@@ -35,7 +35,7 @@
       <section class="hero" aria-labelledby="hero-title">
         <p class="eyebrow hero-eyebrow">Senior technical program manager <span aria-hidden="true">/</span> Nashville, Tennessee</p>
         <h1 id="hero-title">I build AI agents and data systems for work that has to be trusted.</h1>
-        <p class="hero-intro">I work with the people closest to a problem, build the software, and lead it from prototype to production.</p>
+        <p class="hero-intro">I work with the people closest to a problem, build the software in Python and SQL, and lead it from prototype to production.</p>
         <p class="hero-background">Now at <strong>Amazon</strong>, including earlier work at <strong>AWS</strong>. Previously <strong>Deloitte</strong> and <strong>PwC</strong>.</p>
         <div class="hero-actions">
           <a class="work-link" href="#work">Explore my work <span aria-hidden="true">↓</span></a>
@@ -87,6 +87,22 @@
                 <p>I use agent evaluations and user feedback to check both behavior and usefulness.</p>
               </div>
             </details>
+          </article>
+          <article class="project project-public">
+            <div class="project-outcome">
+              <div class="project-category">
+                <span class="project-icon"><svg width="28" height="28" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 11l12-6 12 6-12 6-12-6Z"/><path d="M8 13v7c0 2.5 3.6 4.5 8 4.5s8-2 8-4.5v-7"/><path d="M28 11v8"/></svg></span>
+                <span class="eyebrow">Working in public</span>
+              </div>
+              <h3>Zero invented facts across ten test families.</h3>
+              <p>Nashville School Navigator turns a parent&rsquo;s address, grade, and priorities into a shortlist of public, magnet, charter, and private schools. Each one shows the state&rsquo;s letter grade and growth score, how the child gets in, the cost after the state scholarship, and the next deadline.</p>
+              <p class="project-note">A working prototype, not yet used by families.</p>
+            </div>
+            <div class="project-contribution">
+              <p class="eyebrow">Engineering</p>
+              <p>Python and LangGraph with Claude. Deterministic tools own the facts: geocoding, a headless-browser lookup of the district zone finder, state letter grades and TVAAS growth data, and scholarship rules. The model writes the shortlist, and a check step rejects any claim the data does not support. It is the same pattern I used for the compliance agent, now in the open, with evaluations and traces in the repository.</p>
+              <p class="project-link"><a href="https://github.com/lukepionk/nashville-school-navigator">Read the code on GitHub <span aria-hidden="true">&rarr;</span></a></p>
+            </div>
           </article>
           <article class="project project-reporting">
             <div class="project-category">
