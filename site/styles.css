@@ -410,8 +410,8 @@ summary:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 .lesson-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px 48px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px 40px;
 }
 
 .lesson { padding-top: 24px; border-top: 1px solid var(--line); }
@@ -627,6 +627,7 @@ address {
 @media (max-width: 900px) {
   .credentials { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .project-featured { gap: 32px; }
+  .lesson-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .project-featured .project-contribution, .project-public .project-contribution { padding-left: 28px; }
   .project { padding: 28px; }
   .project h3 { font-size: 28px; }
@@ -663,6 +664,7 @@ address {
   .work-grid, .lesson-grid, .learning-section, .contact-panel { grid-template-columns: minmax(0, 1fr); }
   .project { padding: 24px; }
   .project-featured, .project-public { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .lesson-grid { grid-template-columns: minmax(0, 1fr); }
   .project-public .project-contribution { padding: 24px 0 0; border-left: 0; border-top: 1px solid var(--line); }
   .project-featured h3 { max-width: none; font-size: 34px; }
   .project-featured .project-contribution { padding: 24px 0 0; border-top: 1px solid var(--navy-line); border-left: 0; }
