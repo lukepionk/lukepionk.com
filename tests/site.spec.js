@@ -28,7 +28,7 @@ test('five sections are readable, accessible, and usable without JavaScript', as
   await expect(page.locator('.project')).toHaveCount(4);
   await expect(page.locator('.lesson')).toHaveCount(3);
   await expect(page.locator('.learning-panel')).toHaveCount(3);
-  await expect(page.locator('.learning-panel li')).toHaveCount(23);
+  await expect(page.locator('.learning-panel li')).toHaveCount(24);
   await expect(page.locator('.hero-links a')).toHaveCount(3);
   await expect(page.locator('address')).toHaveCount(1);
   await expect(page.locator('body > footer')).toHaveCount(1);
