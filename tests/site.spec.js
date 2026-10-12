@@ -17,7 +17,7 @@ test('five sections are readable, accessible, and usable without JavaScript', as
   await page.goto('/');
 
   await expect(page).toHaveTitle('Luke Pionk — Senior Technical Program Manager');
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I build AI agents for privacy reviews.');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I build data platforms and AI agents with the people who use them.');
   await expect(page.locator('main > section')).toHaveCount(5);
   await expect(page.getByRole('heading', { level: 2 })).toHaveText([
     'Work',
@@ -141,5 +141,5 @@ test('missing-page document gives a useful route home', async ({ page }) => {
   const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa', 'best-practice']).analyze();
   expect(results.violations).toEqual([]);
   await page.getByRole('link', { name: 'Back to Luke Pionk’s website' }).click();
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I build AI agents for privacy reviews.');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I build data platforms and AI agents with the people who use them.');
 });
