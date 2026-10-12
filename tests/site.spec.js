@@ -16,20 +16,17 @@ test('five sections are readable, accessible, and usable without JavaScript', as
   });
   await page.goto('/');
 
-  await expect(page).toHaveTitle('Luke Pionk — Systems teams can build on');
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I build systems teams can build on—and help people put them to work.');
+  await expect(page).toHaveTitle('Luke Pionk — Senior Technical Program Manager');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I build AI agents for privacy reviews.');
   await expect(page.locator('main > section')).toHaveCount(5);
   await expect(page.getByRole('heading', { level: 2 })).toHaveText([
-    'A foundation others build on.',
-    'More reviews completed each week.',
-    'A clearer way to compare schools.',
     'Work',
     'How I work',
     'Learning',
     'Let’s talk.',
   ]);
   await expect(page.locator('.project')).toHaveCount(5);
-  await expect(page.locator('.lesson')).toHaveCount(3);
+  await expect(page.locator('.lesson')).toHaveCount(2);
   await expect(page.locator('.learning-panel')).toHaveCount(3);
   await expect(page.locator('.learning-panel li')).toHaveCount(24);
   await expect(page.locator('.hero-links a')).toHaveCount(3);
@@ -105,11 +102,7 @@ test.describe('optional work and coursework details', () => {
     await expect(page.getByRole('link', { name: 'Read the code on GitHub' })).toHaveAttribute('href', 'https://github.com/lukepionk/nashville-school-navigator');
     await expect(page.locator('.credentials')).toBeVisible();
     await expect(page.locator('.career-path')).toBeVisible();
-    for (const story of await page.locator('.intro-story').all()) {
-      await expect(story).toBeVisible();
-    }
-    await expect(page.locator('.intro-stories')).toContainText('pilot reviewers');
-    await expect(page.locator('.intro-stories')).toContainText('not yet used by families');
+    await expect(page.locator('.project-public .project-note')).toHaveText('A working prototype, not yet used by families.');
 
     for (const selector of ['.project-story', '.project-technical', '.course-details']) {
       const details = page.locator(selector);
@@ -148,5 +141,5 @@ test('missing-page document gives a useful route home', async ({ page }) => {
   const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa', 'best-practice']).analyze();
   expect(results.violations).toEqual([]);
   await page.getByRole('link', { name: 'Back to Luke Pionk’s website' }).click();
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I build systems teams can build on—and help people put them to work.');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('I build AI agents for privacy reviews.');
 });
